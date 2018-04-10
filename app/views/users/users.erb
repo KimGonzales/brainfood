@@ -1,1 +1,14 @@
-<!--- should list all the users >
+<h2> Check out what other's are reading </h2>
+
+<% User.all.each do |u| %>
+  <div class="user-shelves">
+  <h3 class="name"><%= u.username.capitalize %>'s Bookshelves: </h3>
+    <%u.shelves.each do |shelf|%>
+      <p class="shelf-name"><%=shelf.name%></p>
+      <%end%>
+  </div>
+<%end%>
+
+
+  
+  
