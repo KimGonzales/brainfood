@@ -25,9 +25,9 @@ class ApplicationController < Sinatra::Base
     !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
   end
 
-  def authenticate_user_success?(params)
-    user = User.find_by(username: params[:username])
-    !!user && user.authenticate(params[:password])
-  end 
+  # def authenticate_user_success?(params)
+  #   user = User.find_by(username: params[:username])
+  #   !!user && user.authenticate(params[:password])
+  # end 
 
 end 

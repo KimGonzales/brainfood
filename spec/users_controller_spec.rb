@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ApplicationController do
+describe UsersController do
 
   describe "Homepage" do
     it 'loads the Homepage' do 
