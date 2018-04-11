@@ -1,6 +1,6 @@
-<h2> Books </h2>
-
-<% Book.all.each do |book| %>
+<h2> Latest Happenings </h2>
+<!--list books starting with those most recently added-->
+<% Book.all.reverse.each do |book| %>
   <p><a href='/users/<%=book.user.slug%>'><%=book.user.username.capitalize%></a> has added 
   <a href="/books/<%=book.id%>"><%=book.title%></a> to their <a href='/shelves/<%=book.shelf.id%>'><%=book.shelf.name%></a> shelf.</p>
   <% end %>
