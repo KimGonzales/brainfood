@@ -1,9 +1,9 @@
 <h2> Check out what other's are reading </h2>
 
-<% User.all.each do |u| %>
+<% User.all.each do |user| %>
   <div class="user-shelves">
-  <h3 class="name"><%= u.username.capitalize %>'s Bookshelves: </h3>
-    <%u.shelves.each do |shelf|%>
+  <h3 class="name"><a href='/users/<%="#{user.id}"%>'> <%= user.username.capitalize %></a>'s Bookshelves: </h3>
+    <%user.shelves.each do |shelf|%>
       <p class="shelf-name"><%=shelf.name%></p>
       <%end%>
   </div>
