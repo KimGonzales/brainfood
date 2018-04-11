@@ -1,2 +1,2 @@
-class ShelvesController < ApplicationController 
-end 
+class ShelvesController < ApplicationController
+end

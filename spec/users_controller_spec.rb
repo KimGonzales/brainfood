@@ -1,15 +1,13 @@
 require 'spec_helper'
 
-describe UsersController do
-
   describe 'Signup Page' do
 
-    it 'loads the signup page' do 
+    it 'loads the signup page' do
       get '/signup'
       expect(last_response.status).to eq(200)
     end
 
-    it 'signup directs user to users index' do 
+    it 'signup directs user to users index' do
       params = {
         username: 'ryan',
         email: 'ryan@ryan.com',
@@ -72,7 +70,7 @@ describe UsersController do
     end
 
     it 'loads the users page after login' do
-      user = User.create(username: 'sasha', email: 'sasha@sasha.com', password: '123456')
+      User.create(username: 'sasha', email: 'sasha@sasha.com', password: '123456')
       params = {
         username: 'sasha',
         password: '123456'
@@ -132,4 +130,3 @@ describe UsersController do
       expect(page.current_path).to eq('/users')
     end
   end
-end
