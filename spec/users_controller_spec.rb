@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe UsersController do
 
-  describe "Homepage" do
-    it 'loads the Homepage' do 
-      get '/'
-      expect(last_response.status).to eq(200)
-      expect(last_response.body).to include('Welcome to Brainfood!')
-    end
-  end
-
   describe 'Signup Page' do
 
     it 'loads the signup page' do 
