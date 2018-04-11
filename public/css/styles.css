@@ -2,16 +2,8 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.user-shelves {
+.user-update {
     border: solid;
     padding: 10px;
     background-color: teal;
-}
-
-.name {
-    font-family: cursive;
-}
-
-.shelf-name {
-    color: seashell;
 }
