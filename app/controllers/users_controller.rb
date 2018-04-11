@@ -12,9 +12,9 @@ class UsersController < ApplicationController
     erb :'users/signup' 
   end 
 
-  get '/user/:slug' do
-    
-    erb :"/users/#{@user.slug}"
+  get '/users/:slug' do
+    @user = User.find_by_slug(params[:slug])
+    erb :"/users/show"
   end 
   
 end 
