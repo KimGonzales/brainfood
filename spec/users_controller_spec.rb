@@ -134,5 +134,4 @@ describe UsersController do
       expect(page.current_path).to eq('/users')
     end
   end
-end 
-        
+end
