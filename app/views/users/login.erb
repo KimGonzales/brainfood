@@ -1,3 +1,14 @@
-<!--login form asks for username, email and password or has a link to signup -->
+<h2> Login for Brainfood </h2>
 
-<h2> Login below </h2>
+<div class="login form">
+  <form method="post" action="/login">
+    <label for="user_username">Username: </label>
+    <input type="text" name="username" id="username"><br/>
+
+    <label for="password">Password: </label>
+    <input type="text" name="password"><br/>
+
+    <input type="submit" id="submit" value="Log In">
+  </form>
+<p>Don't have an account?<br><a href="/signup">Signup</a></p>
+</div>
