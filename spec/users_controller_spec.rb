@@ -93,7 +93,7 @@ require 'spec_helper'
       session ={}
       session[:user_id] = user.id
       get '/login'
-      expect(last_response.location).to include('/users')
+      expect(last_response.location).to include('/books')
     end
   end
 
@@ -115,18 +115,18 @@ require 'spec_helper'
       expect(last_response.location).to include('/')
     end
 
-    it 'does not load /users if user not logged in' do
-      get '/users'
+    it 'does not load /books if user not logged in' do
+      get '/books'
       expect(last_response.location).to include('/login')
     end
 
-    it 'does load /users if user is logged in' do
+    it 'does load /books if user is logged in' do
       User.create(username: 'sasha',email: 'sasha@sasha.com', password: '123456')
       visit '/login'
 
       fill_in(:username, with: 'sasha')
       fill_in(:password, with: '123456')
       click_button 'submit'
-      expect(page.current_path).to eq('/users')
+      expect(page.current_path).to eq('/books')
     end
   end
