@@ -11,5 +11,10 @@ class UsersController < ApplicationController
   get '/signup' do
     erb :'users/signup' 
   end 
+
+  get '/user/:slug' do
+    
+    erb :"/users/#{@user.slug}"
+  end 
   
 end 
