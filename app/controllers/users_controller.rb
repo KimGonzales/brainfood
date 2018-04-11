@@ -9,10 +9,18 @@ class UsersController < ApplicationController
   end 
 
   get '/signup' do
+    redirect to '/users' if logged_in? 
     erb :'users/signup'
   end 
 
-  post '/signup' do 
+  post '/signup' do
+    if valid?(params)
+      @user = User.create(params)
+      session[:user_id] = @user.id 
+      redirect to '/users'
+    else 
+      redirect to '/signup'
+    end
   end
 
   get '/users/:slug' do
