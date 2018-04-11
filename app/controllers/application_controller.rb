@@ -9,4 +9,17 @@ class ApplicationController < Sinatra::Base
   get '/' do 
     erb :index 
   end 
+
+  # ------------------ Helpers ---------------
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end 
+
+  def logged_in?
+    !!current_user 
+  end 
+
+  def has_empty?(params)
+    params[:username].empty? || params[:email].empty? || params[:password].empty?
+  end 
 end 

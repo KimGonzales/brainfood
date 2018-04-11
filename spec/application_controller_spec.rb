@@ -17,7 +17,7 @@ describe ApplicationController do
       expect(last_response.status).to eq(200)
     end
     
-    it 'signup directs user to brainfood index' do 
+    it 'signup directs user to users index' do 
       params = {
         :username => 'ryan',
         :email => 'ryan@ryan.com',
@@ -107,7 +107,7 @@ describe ApplicationController do
     end
   end
 
-  describe "logout" do
+  describe "Logout" do
     it "lets a user logout if they are already logged in" do
       user = User.create(:username => "sasha", :email => "sasha@sasha.com", :password => "123456")
 
