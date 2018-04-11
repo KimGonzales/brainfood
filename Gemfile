@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
-gem 'rack'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
@@ -15,6 +14,9 @@ gem "tux"
 gem 'rack-flash3'
 gem 'sinatra-redirect-with-flash'
 
-group :test do 
-    gem 'rspec'
-end 
+group :test do
+  gem 'rspec'
+  gem 'capybara'
+  gem 'rack-test'
+  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+end
