@@ -11,6 +11,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to '/books'
     else
+      flash[:message] = "The username and password you 
+        entered did not match our records. Please double-check and try again."
       erb :'users/login'
     end
 

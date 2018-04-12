@@ -1,5 +1,10 @@
 <h2> Login to See The Latest Reads </h2>
 
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+
 <div class="login form">
   <form method="post" action="/login">
     <label> Username:</label>
