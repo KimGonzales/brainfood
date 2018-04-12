@@ -1,4 +1,25 @@
 <h1> Add a Book </h1>
 <form method='POST' action='/books'>
-  <input type='text>
+
+  <label>Title: 
+    <input type='text' name='title' placeholder='booktitle' required>
+  </label><br/>
+
+  <label>Author:
+    <input type='text' name='author' placeholder='who wrote it?' required>
+  </label><br/>
+
+  <label>Favorite Quote:
+    <input type='text' name='quote' placeholder='Inspire Us' required>
+  <label><br/><br/>
+
+  <label>Pick or Add a New BookShelf for your new book!<br/>
+    <% @user.shelves.each do |shelf| %>
+      <input type='radio' name='shelf_id' id='<%=shelf.id%>' value='<%=shelf.id%>' required>
+        <%=shelf.name%>
+      </input>
+      <% end %>
+  </label><br/>
+  
+  <input type='submit' value='submit' id='submit'>
 </form>
