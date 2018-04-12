@@ -6,5 +6,13 @@ class BooksController < ApplicationController
 
   #CRUD
 
+  #------------------------ Create Books -----------------------
+  get '/books/new' do
+    erb :'/books/new' 
+  end 
+
+  post '/books' do
+  end
+
   
 end 
