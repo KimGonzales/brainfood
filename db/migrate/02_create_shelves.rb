@@ -8,7 +8,7 @@ class CreateShelves < ActiveRecord::Migration[4.2]
   end 
 
   def down
-    drop table :shelves
+    drop_table :shelves
   end 
 
 end 
