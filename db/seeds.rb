@@ -1,8 +1,8 @@
 users_list = [
-    {username: 'kim', email: 'kim@kim.com', password_digest: '123456'},
-    {username: 'jess', email: 'jess@jess.com', password_digest: '123456'},
-    {username: 'skip', email: 'skip@skip.com', password_digest: '123456'},
-    {username: 'randi', email: 'randi@randi.com', password_digest: '123456'}
+    {username: 'kim', email: 'kim@kim.com', password: '123456'},
+    {username: 'jess', email: 'jess@jess.com', password: '123456'},
+    {username: 'skip', email: 'skip@skip.com', password: '123456'},
+    {username: 'randi', email: 'randi@randi.com', password: '123456'}
 ]
 
 users_list.each {|detail| new_user = User.create(detail)}

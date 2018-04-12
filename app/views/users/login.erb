@@ -1,17 +1,17 @@
 <h2> Login to See The Latest Reads </h2>
 
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
+<% if flash.has?(:notice) %>
+  <%= flash[:notice] %>
 <% end %>
 
 
 <div class="login form">
   <form method="post" action="/login">
     <label> Username:</label>
-    <input type="text" name="username"><br/>
+    <input type="text" name="username" required><br/>
 
     <label for="password">Password: </label>
-    <input type="text" name="password"><br/>
+    <input type="text" name="password" required><br/>
 
     <input type="submit" id="submit" value="Log In">
   </form>

@@ -1,7 +1,7 @@
 To Do:
 
 User Login
-- [ ] flash error message if user not found or incorrect data is inputed into form.
+- [x] flash error message if user not found or incorrect data is inputed into form.
 - [ ] add a new book route and view in books controller.
 - [ ] give users ability to edit shelves
 - [ ] give users ability to edit books
