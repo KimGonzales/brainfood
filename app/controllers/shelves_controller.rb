@@ -6,6 +6,7 @@ class ShelvesController < ApplicationController
   end
 
   post '/shelves' do
+    #if params are empty, flash message and ask user to provide a valid name
     #shelf = Shelf.new(params[:shelf])
     #current_user.shelves << shelf
     binding.pry 
