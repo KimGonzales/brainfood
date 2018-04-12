@@ -8,5 +8,5 @@ User Login
 - [ ] users can delete shelves but only their shelves
 - [ ] users can delete books but only their books
 - [ ] users should be able to edit their shelves from their show page (let's call this their library)
-- [ ]
+- [ ] maybe open up a page to edit/delete shelves and have all the shelves in view
 - [ ]
