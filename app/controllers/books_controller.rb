@@ -13,8 +13,7 @@ class BooksController < ApplicationController
   end 
 
   post '/books' do
-    new_book = Book.create(params)
-    redirect to '/books'
+    
   end
 
   get '/books/:id' do
