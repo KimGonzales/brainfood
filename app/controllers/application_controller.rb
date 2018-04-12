@@ -26,7 +26,6 @@ class ApplicationController < Sinatra::Base
 
   def valid?(params)
     params.none?{|key,value| value.empty?}
-    #!params[:username].empty? && !params[:email].empty? && !params[:password].empty?
   end
 
 end 
