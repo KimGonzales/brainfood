@@ -6,7 +6,8 @@ class ShelvesController < ApplicationController
     @user = current_user
     @user.shelves << @shelf
     @shelf.save
-    flash[:message] = "You've successfully created your #{@shelf.name} shelf. Please enter your book details."
+    flash[:message] = "You've successfully created your #{@shelf.name} shelf. 
+      Select it below and enter your book details."
     erb :'/books/new'
   end 
 
