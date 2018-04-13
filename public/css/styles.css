@@ -1,9 +1,31 @@
 * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: noteworthy, 'Trebuchet';
 }
 
 .user-shelves {
-    border:solid;
-    padding:10px;
+    border: solid;
+    padding: 10px;
     background-color: teal;
+    color: seashell;
+    margin: 5px;
+    border-color: black;
+    font-family: noteworthy;
+}
+
+a {
+    color: coral;
+}
+
+.user-shelves p a {
+    text-decoration: none;
+    color: seashell;
+    font-family: noteworthy;
+}
+.user-shelves p a:hover {
+    color: coral;
+}
+
+
+a:visited {
+    color: none;
 }
