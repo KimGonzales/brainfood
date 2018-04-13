@@ -1,5 +1,10 @@
 <h2><%=@user.username.capitalize%>'s Library</h2>
 
+<% if flash.has?(:deleted) %>
+  <%= flash[:deleted] %>
+<% end %>
+
+
 <% if @user.id == session[:user_id] %>
   <span>What's on Your Mind? Add Something <a href="/books/new">New</a></span>
 <%end%>

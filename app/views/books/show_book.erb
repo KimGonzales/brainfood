@@ -6,13 +6,19 @@
 <p>From the <%=@book.shelf.name%></a> Bookshelf @ <a href="/users/<%=@book.user.slug%>">
   <%=@book.user.username.capitalize%>'s Library</a>.</p>
 
+
 <% if @book.user == current_user %>
   <form action='/books/<%=@book.id%>/edit' method='GET'>
     <input class='button' type='submit' value='Edit'></input>
   </form>
-
-  <form action='/books/<%=@book.id%>/delete' method='POST'>
-    <input id='hidden' type='hidden' method='_method' value='DELETE'>
-    <input class='button' type='submit' value='Delete'>
-  </form>
 <% end %>
+
+
+<% if @book.user == current_user %>
+  <form method="POST" action="/books/<%=@book.id%>/delete">
+    <input id="hidden" type="hidden" method="_method" value="delete"></input>
+    <input type="submit" value="Delete" class='button'>
+  </form>
+<%end%>
+
+

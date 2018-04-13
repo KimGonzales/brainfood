@@ -6,7 +6,7 @@
   <% Book.all.reverse.each do |book| %>
     <div class="user-shelves">
     <p>
-      <a href='/users/<%=book.user.slug%>'><%=book.user.username.capitalize%></a> has added 
+      <a href='/users/<%=book.user.slug%>'><%=book.user.username.capitalize%></a>
       <a href='/books/<%=book.id%>'><%="'#{book.title}'"%></a> to their 
       <%=book.shelf.name%></a> shelf.
     </p>
