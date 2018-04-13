@@ -16,6 +16,7 @@ class ApplicationController < Sinatra::Base
   end 
 
   get '/profile' do
+    redirect to '/' if !logged_in?
     @user = current_user
     erb :'/users/show'
   end 

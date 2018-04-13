@@ -3,6 +3,8 @@
 
 <p>"<%=@book.quote%>"</p>
 
-<p>From your <a href="/users/<%=@book.user.slug%>"><%=@book.shelf.name%></a> Bookshelf </p>
+<p>From <%=@book.user.username.capitalize%>'s <a href="/users/<%=@book.user.slug%>"><%=@book.shelf.name%></a> Bookshelf </p>
 
-<a href='/books/<%=@book.id%>/edit'>Edit</a>
+<% if @book_user == current_user %>
+  <a href='/books/<%=@book.id%>/edit'>Edit</a>
+<% end %>
