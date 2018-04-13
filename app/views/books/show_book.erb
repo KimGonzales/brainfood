@@ -1,6 +1,6 @@
 <h2><%=@book.title%> <h2>
-<h4>by <%=@book.author%>
+<h4>author: <%=@book.author%></h4>
 
-<p><%=@book.quote%></p>
+<p>"<%=@book.quote%>"</p>
 
-<p>From your <%=@book.shelf.name%> Bookshelf </p>
+<p>From your <a href="/users/<%=@book.user.slug%>"><%=@book.shelf.name%></a> Bookshelf </p>

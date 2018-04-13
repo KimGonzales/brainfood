@@ -1,7 +1,7 @@
 <h2><%=@user.username.capitalize%>'s Library</h2>
 
 <% if @user.id == session[:user_id] %>
-  <a href="/books/new">Add to your Library</a>
+  <span>What's on Your Mind? Add Something <a href="/books/new">New</a></span>
 <%end%>
 
 
@@ -9,7 +9,7 @@
   <h3> <%=shelf.name%> </h3>
     <% shelf.books.each do |book| %>
       <ul>
-        <li> <%= book.title %> by <%= book.author %>
+        <li> <a href="/books/<%=book.id%>"><%= book.title %></a> by <%= book.author %>
       </ul>
     <% end %>
   <% end %>

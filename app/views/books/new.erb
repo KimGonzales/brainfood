@@ -1,40 +1,44 @@
 <h3> Add a New Book To Your Library</h3>
 
-<h4>Where would you like it go? Choose or Create a New Shelf</h4>
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
 
-  <form method='/POST' action='/shelves'>
+<h4>Choose Or Create a Bookshelf for Your New Book</h4>
 
-    <label>Create a New Shelf<br/>
-     <label>Name:
-      <input type='text' name='shelf[name]' placeholder='topic of interest'required>
-     </label>
-    </label><br/><br/>
+  <form method='POST' action='/shelves'>
+
+    <label>Create a New Shelf</label><br/>
+    <label>Shelf Name:
+      <input type='text' name='shelf[name]' placeholder='topic of interest' required>
+    </label>
 
     <input type='submit' value='create new shelf'>
+  </form><br/>
+
+
+  <form method='POST' action='/books'>
+
+    <label>or Choose an Existing Shelf<br/><br/>
+      <% @user.shelves.each do |shelf| %>
+        <input type='radio' name='book[shelf_id]' id='<%=shelf.id%>' value='<%=shelf.id%>'>
+          <%=shelf.name%>
+        </input><br/>
+        <% end %>
+    </label><br/>
+
+    <h4>Book Details</h4>
+    <label>Title: 
+      <input type='text' name='book[title]' placeholder='booktitle' required>
+    </label><br/>
+
+    <label>Author:
+      <input type='text' name='book[author]' placeholder='who wrote it?' required>
+    </label><br/>
+
+    <label>Favorite Quote:
+      <input type='text' name='book[quote]' placeholder='Inspire Us' required>
+    <label><br/><br/>
+    
+    <input type='submit' value='add book' id='submit'>
   </form>
-
-
-<form method='POST' action='/books'>
-
-  <label>Which Shelf is it going on? Choose a Shelf<br/><br/>
-    <% @user.shelves.each do |shelf| %>
-      <input type='radio' name='book[shelf_id]' id='<%=shelf.id%>' value='<%=shelf.id%>'>
-        <%=shelf.name%>
-      </input><br/>
-      <% end %>
-  </label><br/>
-
-  <label>Title: 
-    <input type='text' name='book[title]' placeholder='booktitle' required>
-  </label><br/>
-
-  <label>Author:
-    <input type='text' name='book[author]' placeholder='who wrote it?' required>
-  </label><br/>
-
-  <label>Favorite Quote:
-    <input type='text' name='book[quote]' placeholder='Inspire Us' required>
-  <label><br/><br/>
-  
-  <input type='submit' value='add book' id='submit'>
-</form>

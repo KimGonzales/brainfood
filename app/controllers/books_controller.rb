@@ -6,14 +6,15 @@ class BooksController < ApplicationController
 
   #CRUD
 
-  #------------------------ Create Books -----------------------
+  #------------------------ Create New Books and/or Shelves -----------------------
   get '/books/new' do
     @user = current_user
     erb :'/books/new' 
   end 
 
   post '/books' do
-    
+    @book = Book.create(params[:book])
+    redirect to "/books/#{@book.id}"
   end
 
   get '/books/:id' do
