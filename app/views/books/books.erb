@@ -1,13 +1,15 @@
 <h2> Latest Happenings </h2>
 <!--list books starting with those most recently added-->
 
-<a href='/books/new'>add</a> a new book to your lib</a>
-<% Book.all.reverse.each do |book| %>
-  <div class="user-shelves">
-  <p>
-    <a href='/users/<%=book.user.slug%>'><%=book.user.username.capitalize%></a> has added 
-    <a href='/books/<%=book.id%>'><%=book.title%></a> to their 
-    <a href='/shelves/<%=book.shelf.id%>'><%=book.shelf.name%></a> shelf.
-  </p>
-  </div>
-  <% end %>
+<a href='/books/new'class="button">New</a> Book</a></br>
+<div class='brainfeed'>
+  <% Book.all.reverse.each do |book| %>
+    <div class="user-shelves">
+    <p>
+      <a href='/users/<%=book.user.slug%>'><%=book.user.username.capitalize%></a> has added 
+      <a href='/books/<%=book.id%>'><%=book.title%></a> to their 
+      <a href='/shelves/<%=book.shelf.id%>'><%=book.shelf.name%></a> shelf.
+    </p>
+    </div>
+    <% end %>
+</div>
