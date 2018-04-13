@@ -3,7 +3,8 @@ class ShelvesController < ApplicationController
 
   post '/shelves' do
     @shelf = Shelf.new(params[:shelf])
-    current_user.shelves << @shelf
+    @user = current_user
+    @user.shelves << @shelf
     @shelf.save
     flash[:message] = "You've successfully created your #{@shelf.name} shelf. Please enter your book details."
     erb :'/books/new'

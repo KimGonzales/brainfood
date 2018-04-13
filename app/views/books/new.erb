@@ -18,7 +18,7 @@
 
 
   <form method='POST' action='/books'>
-
+    
     <label>or Choose an Existing Shelf<br/><br/>
       <% @user.shelves.each do |shelf| %>
         <input type='radio' name='book[shelf_id]' id='<%=shelf.id%>' value='<%=shelf.id%>'>
@@ -28,6 +28,7 @@
     </label><br/>
 
     <h4>Book Details</h4>
+
     <label>Title: 
       <input type='text' name='book[title]' placeholder='booktitle' required>
     </label><br/>

@@ -4,7 +4,7 @@ require 'spec_helper'
     it 'loads the Homepage' do
     get '/'
     expect(last_response.status).to eq(200)
-    expect(last_response.body).to include('Welcome to Brainfood!')
+    expect(last_response.body).to include('Welcome')
     end
 
   end
