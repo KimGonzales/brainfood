@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
   end 
 
   get '/profile' do
-    redirect to '/' if !logged_in?
+    login_checkpoint
     @user = current_user
     erb :'/users/show'
   end 
@@ -34,5 +34,9 @@ class ApplicationController < Sinatra::Base
   def valid?(params)
     params.none?{|key,value| value.empty?}
   end
+
+  def login_checkpoint
+    redirect to '/' if !logged_in?
+  end 
 
 end 

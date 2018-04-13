@@ -19,13 +19,13 @@ class BooksController < ApplicationController
   end
 
   get '/books/:id' do
-    redirect to '/' if !logged_in?
+    login_checkpoint
     @book = Book.find_by_id(params[:id])
     erb :'/books/show_book'
   end
 
   get '/books/:id/edit' do
-    redirect to '/' if !logged_in?
+    login_checkpoint
     @book = Book.find_by(id: params[:id])
     erb :'/books/edit'
   end 

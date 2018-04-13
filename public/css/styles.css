@@ -17,6 +17,10 @@ a {
     color: coral;
 }
 
+a:hover {
+    color: teal;
+}
+
 .user-shelves p a {
     text-decoration: none;
     color: seashell;
@@ -32,12 +36,18 @@ a:visited {
 }
 
 input.button {
-    width: 20em;
-    height: 20em;
+    width: 4em;
+    height: 2em;
+    color: seashell;
+    background-color:teal;
+}
+
+input.button:hover {
+    background-color: black;
 }
 
 h1 {
-    color: teal;
+    color: #004d4d;
     background-color:coral;
     text-align: center;
     border-radius: 10px;

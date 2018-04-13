@@ -33,13 +33,13 @@ class UsersController < ApplicationController
   end
 
   get '/users/:slug' do
-    redirect to '/' if !logged_in?
+    login_checkpoint
     @user = User.find_by_slug(params[:slug])
     erb :'/users/show'
   end
 
   get '/logout' do
-    redirect to '/' if !logged_in?
+    login_checkpoint
     session.clear
     redirect to '/login'
   end
