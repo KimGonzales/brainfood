@@ -15,7 +15,6 @@ class UsersController < ApplicationController
         entered did not match our records. Please double-check and try again."
       erb :'users/login'
     end
-
   end
 
   get '/signup' do
@@ -34,17 +33,15 @@ class UsersController < ApplicationController
   end
 
   get '/users/:slug' do
+    redirect to '/' if !logged_in?
     @user = User.find_by_slug(params[:slug])
     erb :'/users/show'
   end
 
   get '/logout' do
-    if logged_in?
-      session.clear
-      redirect to '/login'
-    else 
-      redirect to '/'
-    end
+    redirect to '/' if !logged_in?
+    session.clear
+    redirect to '/login'
   end
 
 end
