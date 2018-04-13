@@ -1,1 +1,41 @@
-<h3>Edit This Book </h3>
+<h2><%=@book.title%> <h2>
+<h4>author: <%=@book.author%></h4>
+
+<p>"<%=@book.quote%>"</p>
+
+<p>From your <a href="/users/<%=@book.user.slug%>"><%=@book.shelf.name%></a> Bookshelf </p>
+
+<h3>Edit Your Book Below </h3>
+
+<form method='POST' action='/books/<%=@book.id%>'>
+  <input type='hidden' id='hidden' name='_method' value='PATCH'>
+
+    <label>Title: 
+      <input type='text' name='book[title]' value='<%=@book.title%>' required>
+    </label><br/>
+
+    <label>Author:
+      <input type='text' name='book[author]' value='<%=@book.author%>' required>
+    </label><br/>
+
+    <label>Favorite Quote:
+      <input type='text' size='75px' name='book[quote]' value='<%=@book.quote%>' required>
+    <label><br/>
+
+    <label>BookShelf:</label>
+      <% @book.user.shelves.each do | shelf |%>
+        <input type='radio' name='book[shelf_id]' value='<%=shelf.id%>'
+          <%='checked' if @book.shelf == shelf %> required> 
+        <%=shelf.name%>
+        </input>
+      <% end%><br/>
+    
+
+    <input type='submit' value='submit changes'>
+    
+</form>
+
+
+
+
+
