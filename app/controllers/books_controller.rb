@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   #CRUD
 
   #------------------------ Create New Books and/or Shelves -----------------------
+  
   get '/books/new' do
     @user = current_user
     erb :'/books/new' 
