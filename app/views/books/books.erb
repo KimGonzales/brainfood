@@ -1,7 +1,7 @@
-<h2> Latest Happenings </h2>
+<h2> Brain Feed </h2>
 <!--list books starting with those most recently added-->
 
-<a href='/books/new'class="button">New</a> Book</a></br>
+<span> Add <a href='/books/new'class="button">New</a> Book</a></span> </br>
 <div class='brainfeed'>
   <% Book.all.reverse.each do |book| %>
     <div class="user-shelves">
