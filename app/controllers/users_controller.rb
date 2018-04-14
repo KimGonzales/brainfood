@@ -32,6 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
+
+  get '/profile' do
+    login_checkpoint
+    @user = current_user
+    erb :'/users/show'
+  end 
+
   get '/users/:slug' do
     login_checkpoint
     @user = User.find_by_slug(params[:slug])

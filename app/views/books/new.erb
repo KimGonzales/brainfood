@@ -21,7 +21,7 @@
     
     <label>or Choose an Existing Shelf<br/><br/>
       <% @user.shelves.each do |shelf| %>
-        <input type='radio' name='book[shelf_id]' id='<%=shelf.id%>' value='<%=shelf.id%>'>
+        <input type='radio' name='book[shelf_id]' id='<%=shelf.id%>' value='<%=shelf.id%>' required>
           <%=shelf.name%>
         </input><br/>
         <% end %>

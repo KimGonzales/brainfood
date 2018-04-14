@@ -15,12 +15,6 @@ class ApplicationController < Sinatra::Base
     erb :index 
   end 
 
-  get '/profile' do
-    login_checkpoint
-    @user = current_user
-    erb :'/users/show'
-  end 
-
   # ----------------------- Helpers --------------------
 
   def current_user

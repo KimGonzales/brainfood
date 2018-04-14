@@ -1,3 +1,4 @@
+require 'sinatra/base'
 class BooksController < ApplicationController
 
   get '/books' do
@@ -6,7 +7,7 @@ class BooksController < ApplicationController
 
   #CRUD
 
-  #------------------------ Create New Books and/or Shelves -----------------------
+  #---------------------------- Create New Books ------------------------------
   
   get '/books/new' do
     @user = current_user
@@ -36,8 +37,7 @@ class BooksController < ApplicationController
     redirect to "/books/#{book.id}"
   end
 
-  #why doesn't this work with delete instead of post
-  post '/books/:id/delete' do 
+  delete '/books/:id/delete' do 
     book = Book.find_by(id: params[:id])
     flash[:deleted] = "#{book.title} has been deleted."
     book.delete

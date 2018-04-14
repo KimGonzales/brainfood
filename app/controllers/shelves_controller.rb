@@ -11,4 +11,10 @@ class ShelvesController < ApplicationController
     erb :'/books/new'
   end 
 
+  get '/shelves/edit' do
+    @user = current_user
+    login_checkpoint
+    erb :'/shelves/edit' 
+  end
+
 end
