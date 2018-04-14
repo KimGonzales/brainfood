@@ -1,1 +1,17 @@
-<%=@shelf.user.name%>
+<h3><a href'/users/<%=@shelf.user.id%>'>
+  @<%=@shelf.user.name%></a>'s <%=@shelf.name%> BookShelf</h3>
+
+    <div>holds these great reads: </div>
+
+      <% @shelf.books.each do |book| %>
+        <ul>
+          <li><a href='/books/<%=book.id%>'>
+            <%= book.title %> </a>
+          </li>
+        </ul>
+      <% end %>
+
+Edit
+Delete
+
+
