@@ -11,7 +11,14 @@
         </ul>
       <% end %>
 
-Edit
-Delete
+<form method='GET' action='/shelves/<%=@shelf.id%>/edit'>
+  <input type='submit' value='Edit'/>
+</form>
+
+<form method='POST' action='/shelves/<%=@shelf.id%>/delete'>
+  <input type='hidden' id='hidden' name='_method' value='DELETE'>
+  <input type='submit' value='Delete Shelf'>
+</form>
+
 
 

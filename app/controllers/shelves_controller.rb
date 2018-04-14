@@ -1,5 +1,4 @@
 class ShelvesController < ApplicationController
-  #CREATE, READ, UPDATE DELETE
 
   post '/shelves' do
     @shelf = Shelf.new(params[:shelf])
@@ -11,18 +10,19 @@ class ShelvesController < ApplicationController
     erb :'/books/new'
   end 
 
-  get '/shelves/edit' do
-    @user = current_user
-    login_checkpoint
-    erb :'/shelves/edit' 
-  end
 
   get '/shelves/:id' do 
     @shelf = Shelf.find_by(id: params[:id])
     erb :'/shelves/show_shelf'
   end
 
+  get '/shelves/:id/edit' do
+    @shelf = Shelf.find_by(id: params[:id])
+    erb :'/shelves/edit' 
+  end
+
   patch '/shelves/:id' do
+    binding.pry
     shelf = Shelf.find_by(id: params[:id])
     shelf.update(params[:shelf])
     @user = shelf.user
