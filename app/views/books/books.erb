@@ -1,15 +1,17 @@
 <h2> Brain Feed </h2>
 <!--list books starting with those most recently added-->
+<h3>Welcome back, <%=current_user.username.capitalize%>!</h3>
 
-<span> Add <a href='/books/new'class="button">New</a> Book</a></span> </br>
+<span><a href='/books/new'class="button">Add</a>
+  to The Collective</span> </br>
+
 <div class='brainfeed'>
   <% Book.all.reverse.each do |book| %>
     <div class="user-shelves">
     <p>
-      <a href='/users/<%=book.user.slug%>'><%=book.user.username.capitalize%></a>
-      has added
-      <a href='/books/<%=book.id%>'><%="'#{book.title}'"%></a> to their 
-      <%=book.shelf.name%></a> shelf.
+      <a href='/users/<%=book.user.slug%>'>@<%=book.user.username.capitalize%></a>
+      : "<%=book.quote%>" from their latest read:
+      <a href='/books/<%=book.id%>'><%="'#{book.title}'"%></a>.
     </p>
     </div>
     <% end %>
