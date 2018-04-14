@@ -17,4 +17,21 @@ class ShelvesController < ApplicationController
     erb :'/shelves/edit' 
   end
 
+  patch '/shelves/:id' do
+    shelf = Shelf.find_by(id: params[:id])
+    shelf.update(params[:shelf])
+    @user = shelf.user
+    flash[:notice] = "You've successfully edited your 
+      #{shelf.name} Shelf."
+    erb :'/users/show'
+  end 
+
+  delete '/shelves/:id/delete' do 
+    shelf = Shelf.find_by(id: params[:id])
+    flash[:notice] = "You've successfuly deleted your
+      #{shelf.name} Shelf."
+    shelf.destroy
+    redirect to '/profile'
+  end 
+
 end

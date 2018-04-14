@@ -39,7 +39,7 @@ class BooksController < ApplicationController
 
   delete '/books/:id/delete' do 
     book = Book.find_by(id: params[:id])
-    flash[:deleted] = "#{book.title} has been deleted."
+    flash[:notice] = "#{book.title} has been deleted."
     book.delete
     @user = current_user
     erb :'/users/show'

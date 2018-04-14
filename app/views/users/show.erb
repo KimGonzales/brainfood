@@ -1,12 +1,12 @@
 <h2><%=@user.username.capitalize%>'s Library</h2>
 
-<% if flash.has?(:deleted) %>
-  <%= flash[:deleted] %>
-<% end %>
+<% if flash.has?(:notice) %>
+  <%= flash[:notice] %>
+<% end %><br/>
 
 
 <% if @user.id == session[:user_id] %>
-  <a href='/shelves/edit'>Edit Library </a>
+  <a href='/shelves/edit'>Edit Bookshelves </a>
   <p>Enjoying a New Book? Add it 
   <a href="/books/new">here!</a></p>
 <%end%>
