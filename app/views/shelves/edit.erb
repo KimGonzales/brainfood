@@ -5,14 +5,14 @@
 <form method='POST' action='/shelves/<%=@shelf.id%>' >
   <input type='hidden' id='hidden' name='_method' value='PATCH'>
         
-  <h3>Shelf Name: </h3>
-  <input type='text' id='<%=@shelf.id%>' name='shelf[name]' value='<%=@shelf.name%>'>
+  <h3>Shelf Name:
+  <input type='text' id='<%=@shelf.id%>' name='shelf[name]' value='<%=@shelf.name%>'><h3>
 
 
     <div>holds these great reads:
       <ul>
       <% @shelf.books.each do |book| %>
-          <li><a href='/books/<%=book.id%>'>
+          <li><a href='/books/<%=book.id%>/edit'>
             <%= book.title %> </a>
           </li>
         <% end %>
@@ -20,3 +20,13 @@
     </div>
     <input type='submit' value='Edit Name'>
 </form>
+
+<form method='POST' action='/shelves/<%=@shelf.id%>/delete'>
+    <input type='hidden' id='hidden' name='_method' value='DELETE'>
+    <input type='submit' value='Delete Shelf'>
+  </form>
+
+  <span>Warning: Deleting This Shelf will delete all of it's contents.
+    To Move A Book to another Shelf, select the book and place it on the
+    desired shelf location.
+    </span>
