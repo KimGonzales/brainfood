@@ -17,6 +17,11 @@ class ShelvesController < ApplicationController
     erb :'/shelves/edit' 
   end
 
+  get '/shelves/:id' do 
+    @shelf = Shelf.find_by(id: params[:id])
+    erb :'/shelves/show_shelf'
+  end
+
   patch '/shelves/:id' do
     shelf = Shelf.find_by(id: params[:id])
     shelf.update(params[:shelf])

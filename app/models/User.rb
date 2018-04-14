@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
     self.all.find {|user|user.slug == slug} 
   end 
 
+  def name
+    self.username.capitalize
+  end
+
 end 

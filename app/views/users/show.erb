@@ -13,7 +13,7 @@
 
 <div class='bookcase'>
   <% @user.shelves.each do |shelf| %>
-    <h3> <%=shelf.name%> </h3>
+    <h3><a href='/shelves/<%=shelf.id%>'> <%=shelf.name%> </a></h3>
       <% shelf.books.each do |book| %>
         <ul>
           <li> <a href="/books/<%=book.id%>"><%= book.title %></a> by <%= book.author %>
