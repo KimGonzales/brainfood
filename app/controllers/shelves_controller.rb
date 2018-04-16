@@ -22,13 +22,12 @@ class ShelvesController < ApplicationController
   end
 
   patch '/shelves/:id' do
-    binding.pry
-    shelf = Shelf.find_by(id: params[:id])
-    shelf.update(params[:shelf])
-    @user = shelf.user
+    @shelf = Shelf.find_by(id: params[:id])
+    @shelf.update(params[:shelf])
+    user = @shelf.user
     flash[:notice] = "You've successfully edited your 
-      #{shelf.name} Shelf."
-    erb :'/users/show'
+      #{@shelf.name} Shelf."
+    erb :'shelves/show_shelf'
   end 
 
   delete '/shelves/:id/delete' do 

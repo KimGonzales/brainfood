@@ -1,5 +1,4 @@
 <h2> Brain Feed </h2>
-<!--list books starting with those most recently added-->
 <h3>Welcome back, <%=current_user.name%>!</h3>
 
 <span><a href='/books/new'class="button">Add</a>
@@ -7,12 +6,14 @@
 
 <div class='brainfeed'>
   <% Book.all.reverse.each do |book| %>
-    <div class="user-shelves">
-    <p>
-      <a href='/users/<%=book.user.slug%>'>@<%=book.user.username.capitalize%></a>
-      : "<%=book.quote%>" from their latest read:
-      <a href='/books/<%=book.id%>'><%="'#{book.title}'"%></a>.
-    </p>
-    </div>
+    <% if book.user %>
+      <div class="user-shelves">
+        <p>
+          <a href='/users/<%=book.user.slug%>'>@<%=book.user.username.capitalize%></a>
+          : "<%=book.quote%>" from their latest read:
+          <a href='/books/<%=book.id%>'><%="'#{book.title}'"%></a>.
+        </p>
+      </div>
     <% end %>
+  <% end %>
 </div>

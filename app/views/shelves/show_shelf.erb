@@ -1,3 +1,8 @@
+<% if flash.has?(:notice) %>
+  <%= flash[:notice] %><br/>
+<% end %>
+
+
 <h3><a href'/users/<%=@shelf.user.id%>'>
   @<%=@shelf.user.name%></a>'s <%=@shelf.name%> BookShelf</h3>
 
@@ -12,7 +17,7 @@
       <% end %>
 
 <form method='GET' action='/shelves/<%=@shelf.id%>/edit'>
-  <input type='submit' value='Edit'/>
+  <input type='submit' value='Edit Shelf'/>
 </form>
 
 

@@ -9,16 +9,14 @@
   <input type='text' id='<%=@shelf.id%>' name='shelf[name]' value='<%=@shelf.name%>'><h3>
 
 
-    <div>holds these great reads:
-      <ul>
-      <% @shelf.books.each do |book| %>
-          <li><a href='/books/<%=book.id%>/edit'>
-            <%= book.title %> </a>
-          </li>
+    <div class='booklist'>Shelf Books:<br/>
+      <% @shelf.user.books.all.each do |book| %>
+          <input type='checkbox' name='shelf[book_ids][]' value='<%=book.id%>'
+            id='<%=book.title%>' <%='checked' if @shelf.books.include?(book)%> > 
+            <%=book.title%></input><br/>
         <% end %>
-      </ul>
     </div>
-    <input type='submit' value='Edit Name'>
+    <input type='submit' value='Submit Changes'>
 </form>
 
 <form method='POST' action='/shelves/<%=@shelf.id%>/delete'>
@@ -27,6 +25,4 @@
   </form>
 
   <span>Warning: Deleting This Shelf will delete all of it's contents.
-    To Move A Book to another Shelf, select the book and place it on the
-    desired shelf location.
     </span>

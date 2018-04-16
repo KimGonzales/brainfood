@@ -3,7 +3,7 @@
 
 <p>"<%=@book.quote%>"</p>
 
-<p>From the <%=@book.shelf.name%></a> Bookshelf @ <a href="/users/<%=@book.user.slug%>">
+<p>From the <a href='/shelves/<%=@book.shelf.id%>'> <%=@book.shelf.name%></a> Bookshelf @ <a href="/users/<%=@book.user.slug%>">
   <%=@book.user.name%>'s Library</a>.</p>
 
 
