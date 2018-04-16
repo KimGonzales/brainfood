@@ -16,20 +16,22 @@ class BooksController < ApplicationController
 
   post '/books' do
     @user = current_user
-    if !!params[:book][:shelf_id] && valid?(params[:shelf])
+    if (!!params[:book][:shelf_id] && valid?(params[:shelf])) || (!params[:book][:shelf_id] && !valid?(params[:shelf]))
       flash[:message] = "Please Choose or Create ONE Shelf for this Book."
-      erb :'/books/new'
+      erb :'/books/new' 
 
-    elsif valid?(params[:book])
+    elsif !!params[:book][:shelf_id] 
       @book = Book.create(params[:book])
       redirect to "/books/#{@book.id}"
 
     else valid?(params[:shelf])
       @book = Book.new(params[:book])
       @book.shelf = Shelf.create(params[:shelf])
+      @user.shelves << @book.shelf
       @book.save
       redirect to "/books/#{@book.id}"
     end 
+    
   end
 
   #------------------------------------- Show Books -----------------------------------
