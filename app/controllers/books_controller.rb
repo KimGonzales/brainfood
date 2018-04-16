@@ -16,6 +16,9 @@ class BooksController < ApplicationController
 
   post '/books' do
     @book = Book.create(params[:book])
+    if valid?(params[:shelf])
+      @book.shelf = Shelf.create(params[:shelf])
+    end 
     redirect to "/books/#{@book.id}"
   end
 

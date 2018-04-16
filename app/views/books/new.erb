@@ -4,6 +4,37 @@
   <%= flash[:message] %>
 <% end %>
 
+
+    <h4>Book Details</h4>
+
+    <label>Title: 
+      <input type='text' name='book[title]' placeholder='booktitle' required>
+    </label><br/>
+
+    <label>Author:
+      <input type='text' name='book[author]' placeholder='who wrote it?' required>
+    </label><br/>
+
+    <label>Favorite Quote:
+      <input type='text' name='book[quote]' placeholder='Inspire Us' required>
+    <label><br/>
+
+    <h4>Which Bookshelf Would You Like to place this Book On?</h4>
+    <p>Choose an Existing Shelf<p>
+
+    <% @user.shelves.each do | shelf |%>
+      <input type='radio' name='book[shelf_id]' id='shelf.name' value='<%=shelf.id%>'>
+        <%=shelf.name%></input>
+      <% end %><br/>
+
+      <p> or Create a new Shelf </p>
+        <input type='text' name='shelf[name]' placeholder='new shelf name'/><br/>
+    
+    <input type='submit' value='Create Book' id='submit'>
+  </form>
+
+
+  <!--
 <h4>Choose Or Create a Bookshelf for Your New Book</h4>
 
   <form method='POST' action='/shelves'>
@@ -27,19 +58,4 @@
         <% end %>
     </label><br/>
 
-    <h4>Book Details</h4>
-
-    <label>Title: 
-      <input type='text' name='book[title]' placeholder='booktitle' required>
-    </label><br/>
-
-    <label>Author:
-      <input type='text' name='book[author]' placeholder='who wrote it?' required>
-    </label><br/>
-
-    <label>Favorite Quote:
-      <input type='text' name='book[quote]' placeholder='Inspire Us' required>
-    <label><br/><br/>
-    
-    <input type='submit' value='add book' id='submit'>
-  </form>
+    -->
