@@ -19,10 +19,15 @@ class BooksController < ApplicationController
     if !!params[:book][:shelf_id] && valid?(params[:shelf])
       flash[:message] = "Please Choose or Create ONE Shelf for this Book."
       erb :'/books/new'
-    elsif valid?(params[:shelf])
-      # @book = Book.create(params[:book])
-      # @book.shelf = Shelf.create(params[:shelf])
-      # redirect to "/books/#{@book.id}"
+
+    elsif valid?(params[:book])
+      @book = Book.create(params[:book])
+      redirect to "/books/#{@book.id}"
+      
+    else valid?(params[:shelf])
+      @book = Book.create(params[:book])
+      @book.shelf = Shelf.create(params[:shelf])
+      redirect to "/books/#{@book.id}"
     end 
   end
 
