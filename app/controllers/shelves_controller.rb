@@ -1,25 +1,17 @@
 class ShelvesController < ApplicationController
 
+  #------------------------------------- Read Shelves ---------------------------------
   get '/shelves' do 
     redirect to '/profile'
   end 
-
-  post '/shelves' do
-    # @shelf = Shelf.new(params[:shelf])
-    # @user = current_user
-    # @user.shelves << @shelf
-    # @shelf.save
-    # flash[:message] = "You've successfully created your #{@shelf.name} shelf. 
-    #   Select it below and enter your book details."
-    # erb :'/books/new'
-  end 
-
 
   get '/shelves/:id' do
     login_checkpoint
     @shelf = Shelf.find_by(id: params[:id])
     erb :'/shelves/show_shelf'
   end
+
+  #------------------------------------- Edit Shelves ---------------------------------
 
   get '/shelves/:id/edit' do
     @shelf = Shelf.find_by(id: params[:id])
@@ -36,11 +28,13 @@ class ShelvesController < ApplicationController
       flash[:notice] = "Please fill all required book fields to create a new book."
       erb :'/shelves/edit'
     end 
-    
+
     flash[:notice] = "You've successfully edited your 
       #{@shelf.name} Shelf."
     erb :'shelves/show_shelf'
   end 
+
+  #------------------------------------ Delete Shelves --------------------------------
 
   delete '/shelves/:id/delete' do 
     shelf = Shelf.find_by(id: params[:id])
