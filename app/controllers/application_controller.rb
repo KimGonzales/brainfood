@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
     erb :index 
   end 
 
-  # ----------------------- Helpers --------------------
+  # -------------------------------------- Helpers -----------------------------
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -25,12 +25,19 @@ class ApplicationController < Sinatra::Base
     !!current_user 
   end 
 
+  #checks param before an instance is created or updated.
   def valid?(params)
     params.none?{|key,value| value.empty?}
   end
 
+  #redirects to the index page if the user is not logged in.
   def login_checkpoint
     redirect to '/' if !logged_in?
+  end
+
+  #returns true if user is permitted to change content.
+  def user_permitted_to_edit(item)
+    item.user == current_user 
   end 
 
 end 

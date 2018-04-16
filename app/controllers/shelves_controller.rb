@@ -1,5 +1,9 @@
 class ShelvesController < ApplicationController
 
+  get '/shelves' do 
+    redirect to '/profile'
+  end 
+
   post '/shelves' do
     @shelf = Shelf.new(params[:shelf])
     @user = current_user
@@ -11,7 +15,8 @@ class ShelvesController < ApplicationController
   end 
 
 
-  get '/shelves/:id' do 
+  get '/shelves/:id' do
+    login_checkoint
     @shelf = Shelf.find_by(id: params[:id])
     erb :'/shelves/show_shelf'
   end
