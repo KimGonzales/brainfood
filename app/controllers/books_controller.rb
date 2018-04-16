@@ -15,11 +15,15 @@ class BooksController < ApplicationController
   end 
 
   post '/books' do
-    @book = Book.create(params[:book])
-    if valid?(params[:shelf])
-      @book.shelf = Shelf.create(params[:shelf])
+    @user = current_user
+    if !!params[:book][:shelf_id] && valid?(params[:shelf])
+      flash[:message] = "Please Choose or Create ONE Shelf for this Book."
+      erb :'/books/new'
+    elsif valid?(params[:shelf])
+      # @book = Book.create(params[:book])
+      # @book.shelf = Shelf.create(params[:shelf])
+      # redirect to "/books/#{@book.id}"
     end 
-    redirect to "/books/#{@book.id}"
   end
 
   get '/books/:id' do

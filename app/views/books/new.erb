@@ -1,10 +1,10 @@
-<h3> Add a New Book To Your Library</h3>
-
 <% if flash.has?(:message) %>
-  <%= flash[:message] %>
+  <h2><%= flash[:message] %> </h2>
 <% end %>
 
+<h3> Add a New Book To Your Library</h3>
 
+  <form method='POST' action='/books'>
     <h4>Book Details</h4>
 
     <label>Title: 
@@ -32,30 +32,3 @@
     
     <input type='submit' value='Create Book' id='submit'>
   </form>
-
-
-  <!--
-<h4>Choose Or Create a Bookshelf for Your New Book</h4>
-
-  <form method='POST' action='/shelves'>
-
-    <label>Create a New Shelf</label><br/>
-    <label>Shelf Name:
-      <input type='text' name='shelf[name]' placeholder='topic of interest' required>
-    </label>
-
-    <input type='submit' value='create new shelf'>
-  </form><br/>
-
-
-  <form method='POST' action='/books'>
-    
-    <label>or Choose an Existing Shelf<br/><br/>
-      <% @user.shelves.each do |shelf| %>
-        <input type='radio' name='book[shelf_id]' id='<%=shelf.id%>' value='<%=shelf.id%>' required>
-          <%=shelf.name%>
-        </input><br/>
-        <% end %>
-    </label><br/>
-
-    -->

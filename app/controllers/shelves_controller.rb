@@ -5,18 +5,12 @@ class ShelvesController < ApplicationController
   end 
 
   post '/shelves' do
-    @shelf = Shelf.new(params[:shelf])
-    @user = current_user
-    @user.shelves << @shelf
-    @shelf.save
-    flash[:message] = "You've successfully created your #{@shelf.name} shelf. 
-      Select it below and enter your book details."
-    erb :'/books/new'
+   
   end 
 
 
   get '/shelves/:id' do
-    login_checkoint
+    login_checkpoint
     @shelf = Shelf.find_by(id: params[:id])
     erb :'/shelves/show_shelf'
   end
@@ -42,7 +36,7 @@ class ShelvesController < ApplicationController
 
   delete '/shelves/:id/delete' do 
     shelf = Shelf.find_by(id: params[:id])
-    flash[:notice] = "You've successfuly deleted your
+    flash[:notice] = "You've successfuly Deleted your
       #{shelf.name} Shelf."
     shelf.destroy
     redirect to '/profile'
