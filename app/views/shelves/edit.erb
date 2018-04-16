@@ -9,12 +9,25 @@
   <input type='text' id='<%=@shelf.id%>' name='shelf[name]' value='<%=@shelf.name%>'><h3>
 
 
-    <div class='booklist'>Shelf Books:<br/>
+    <div class='booklist'>Which of your books would you like to place on this shelf?<br/>
       <% @shelf.user.books.all.each do |book| %>
           <input type='checkbox' name='shelf[book_ids][]' value='<%=book.id%>'
             id='<%=book.title%>' <%='checked' if @shelf.books.include?(book)%> > 
             <%=book.title%></input><br/>
         <% end %>
+        <p>or create a new book:</p>
+
+          <label for='booktitle'>Book Title:
+          <input type='text' name='book[title]'/>
+          </label><br/>
+
+          <label for 'bookauthor'>Book Author:
+          <input type='author' name='book[author]'/>
+          </label><br/>
+
+          <label for 'bookquote'>Favorite Quote:
+          <input type='text' name='book[quote]'/>
+          </label><br/>
     </div>
     <input type='submit' value='Submit Changes'>
 </form>

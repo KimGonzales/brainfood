@@ -16,8 +16,10 @@
         </ul>
       <% end %>
 
-<form method='GET' action='/shelves/<%=@shelf.id%>/edit'>
-  <input type='submit' value='Edit Shelf'/>
-</form>
+<% if @shelf.user == current_user %>
+  <form method='GET' action='/shelves/<%=@shelf.id%>/edit'>
+    <input type='submit' value='Edit Shelf'/>
+  </form>
+<% end %>
 
 

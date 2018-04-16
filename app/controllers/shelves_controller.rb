@@ -24,7 +24,12 @@ class ShelvesController < ApplicationController
   patch '/shelves/:id' do
     @shelf = Shelf.find_by(id: params[:id])
     @shelf.update(params[:shelf])
-    user = @shelf.user
+    if valid?(params[:book])
+      @shelf.books << Book.new(params[:book])
+    else 
+      flash[:notice] = "Please fill all required book fields to create a new book."
+      erb :'/shelves/edit'
+    end 
     flash[:notice] = "You've successfully edited your 
       #{@shelf.name} Shelf."
     erb :'shelves/show_shelf'
