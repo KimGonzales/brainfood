@@ -1,6 +1,7 @@
 class ShelvesController < ApplicationController
 
   #------------------------------------- Read Shelves ---------------------------------
+  
   get '/shelves' do 
     redirect to '/profile'
   end 

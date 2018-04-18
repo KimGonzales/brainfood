@@ -5,8 +5,6 @@ class BooksController < ApplicationController
     (logged_in?) ? (erb :'books/books') : (redirect to '/login')
   end
 
-  #CRUD
-
   #----------------------------------- Create New Books -------------------------------
   
   get '/books/new' do
