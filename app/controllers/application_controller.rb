@@ -9,13 +9,15 @@ class ApplicationController < Sinatra::Base
     use Rack::Flash
     set :session_secret, "password_security"
   end 
+ 
+  #-------------------------------------- Go to Index ---------------------------------
 
   get '/' do
     redirect to '/books' if logged_in?
     erb :index 
   end 
 
-  # -------------------------------------- Helpers -----------------------------
+  # -------------------------------------- Helpers -------------------------------------
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -25,7 +27,7 @@ class ApplicationController < Sinatra::Base
     !!current_user 
   end 
 
-  #checks param before an instance is created or updated.
+  #checks params are not empty before an instance is created or updated.
   def valid?(params)
     params.none?{|key,value| value.empty?}
   end

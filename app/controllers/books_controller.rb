@@ -45,7 +45,7 @@ class BooksController < ApplicationController
   get '/books/:id/edit' do
     login_checkpoint
     @book = Book.find_by(id: params[:id])
-    erb :'/books/edit'
+    if user_permitted_to_edit(@book) then erb :'/books/edit' else redirect to '/books' end 
   end 
 
   patch '/books/:id' do
@@ -58,6 +58,7 @@ class BooksController < ApplicationController
 
   delete '/books/:id/delete' do 
     book = Book.find_by(id: params[:id])
+    redirect to '/books' if !user_permitted_to_edit(book)
     flash[:notice] = "#{book.title} has been deleted."
     book.destroy
     @user = current_user
