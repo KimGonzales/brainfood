@@ -10,29 +10,44 @@
 <form method='POST' action='/books/<%=@book.id%>'>
   <input type='hidden' id='hidden' name='_method' value='PATCH'>
 
-    <label>Title: 
-      <input type='text' name='book[title]' value='<%=@book.title%>' required>
-    </label><br/>
+  <table>
 
-    <label>Author:
-      <input type='text' name='book[author]' value='<%=@book.author%>' required>
-    </label><br/>
+    <tr>
 
-    <label>Favorite Quote:
-      <input type='text' name='book[quote]' value='<%=@book.quote%>' required>
-    <label><br/>
+      <td><label>Title:</td>
+        <td> <input type='text' name='book[title]' value='<%=@book.title%>' required>
+      </label><br/> </td>
+    </tr>
 
-    <label>BookShelf:</label>
-      <% @book.user.shelves.each do | shelf |%>
-        <input type='radio' name='book[shelf_id]' value='<%=shelf.id%>'
-          <%='checked' if @book.shelf == shelf %> required> 
-        <%=shelf.name%>
-        </input>
-      <% end%><br/>
+    <tr>
+      <td><label>Author: </td>
+      <td><input type='text' name='book[author]' value='<%=@book.author%>' required>
+      </label><br/> </td>
+    </tr>
     
+    <tr>
+      <td><label>Favorite Quote:</td>
+      <td><textarea type='text' name='book[quote]' rows="6" cols="80" required><%=@book.quote%></textarea>
+      <label><br/></td>
+    </tr>
 
-    <input type='submit' value='submit changes'>
-    
+  </table>
+
+  <table>
+    <tr>
+      <label>BookShelf:</label>
+        <% @book.user.shelves.each do | shelf |%>
+          <td><input type='radio' name='book[shelf_id]' value='<%=shelf.id%>'
+            <%='checked' if @book.shelf == shelf %> required> 
+          <%=shelf.name%>
+          </input></td>
+        <% end%>
+    </tr>
+
+    <tr>
+      <td><input type='submit' value='submit changes'></td>
+    </tr>
+  </table>
 </form>
 
 

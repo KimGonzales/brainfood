@@ -16,11 +16,15 @@
     </label><br/>
 
     <label>Favorite Quote:
-      <input type='text' name='book[quote]' placeholder='Inspire Us!' required>
-    <label><br/>
+      <textarea type='text' name='book[quote]' placeholder='Inspire Us!' required></textarea>
+    </label><br/>
 
     <h4>Which Bookshelf Would You Like to place this Book On?</h4>
     <p>Choose an Existing Shelf<p>
+
+    <% if @user.shelves.empty? %>
+      <p>[Looks like you should create your first Bookshelf!] </p>
+    <% end %>
 
     <% @user.shelves.each do | shelf |%>
       <input type='radio' name='book[shelf_id]' id='shelf.name' value='<%=shelf.id%>'>
