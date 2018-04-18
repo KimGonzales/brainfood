@@ -4,40 +4,56 @@
 
 <form method='POST' action='/shelves/<%=@shelf.id%>' >
   <input type='hidden' id='hidden' name='_method' value='PATCH'>
-        
-  <h4>Shelf Name:
-  <input type='text' id='<%=@shelf.id%>' name='shelf[name]' value='<%=@shelf.name%>'></h4>
 
+  <table>
+    <tr>   
+      <td><h4>Shelf Name:</td>
+      <td> <input type='text' id='<%=@shelf.id%>' name='shelf[name]' value='<%=@shelf.name%>'></h4></td>
+    </tr>
+  </table>
+      <div class='booklist'>
+        <span>Which of your books would you like to place on this shelf?</span><br/><br/>
+        <% @shelf.user.books.all.each do |book| %>
+            <input type='checkbox' name='shelf[book_ids][]' value='<%=book.id%>'
+              id='<%=book.title%>' <%='checked' if @shelf.books.include?(book)%> > 
+              <%=book.title%></input><br/>
+          <% end %>
+      </div>
+    </tr>
 
-    <div class='booklist'>
-      <span>Which of your books would you like to place on this shelf?</span><br/><br/>
-      <% @shelf.user.books.all.each do |book| %>
-          <input type='checkbox' name='shelf[book_ids][]' value='<%=book.id%>'
-            id='<%=book.title%>' <%='checked' if @shelf.books.include?(book)%> > 
-            <%=book.title%></input><br/>
-        <% end %>
+  <table>
+    <tr>
+      <td><p>or create a new book:</p></td>
+    </tr>
 
-        <p>or create a new book:</p>
+    <tr>
+      <td><label for='booktitle'>Book Title:</td>
+      <td><input type='text' name='book[title]'/>
+        </label><br/></td>
+    </tr>
 
-          <label for='booktitle'>Book Title:
-          <input type='text' name='book[title]'/>
-          </label><br/>
+    <tr>
+      <td><label for 'bookauthor'>Book Author:</td>
+      <td><input type='author' name='book[author]'/>
+      </label><br/></td>
 
-          <label for 'bookauthor'>Book Author:
-          <input type='author' name='book[author]'/>
-          </label><br/>
+    <tr>
+      <td><label for 'bookquote'>Favorite Quote:</td>
+      <td><input type='text' name='book[quote]'/>
+      </label><br/></td>
+    </tr>
 
-          <label for 'bookquote'>Favorite Quote:
-          <input type='text' name='book[quote]'/>
-          </label><br/>
-    </div>
-    <input class='button' type='submit' value='Edit'>
-</form>
-
-<form method='POST' action='/shelves/<%=@shelf.id%>/delete'>
-    <input type='hidden' id='hidden' name='_method' value='DELETE'>
-    <input class='button' type='submit' value='Delete'>
+    <tr>
+      <td><input class='button' type='submit' value='Edit'></td>
+    </tr>
+    
+    </table>
   </form>
+
+  <form method='POST' action='/shelves/<%=@shelf.id%>/delete'>
+      <input type='hidden' id='hidden' name='_method' value='DELETE'>
+      <input class='button' type='submit' value='Delete'>
+    </form>
 
   <h6>WARNING: Deleting this shelf will delete all of its contents.
     </h6>
