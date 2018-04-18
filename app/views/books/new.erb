@@ -6,18 +6,27 @@
 
   <form method='POST' action='/books'>
     <h4>Book Details</h4>
+    
+    <table>
 
-    <label>Title: 
-      <input type='text' name='book[title]' placeholder="What's it called?" required>
-    </label><br/>
+      <tr>
+        <td><label>Title:</td>
+        <td><input type='text' name='book[title]' placeholder="What's it called?" required>
+        </label></td>
+      </tr>
 
-    <label>Author:
-      <input type='text' name='book[author]' placeholder='Who wrote it?' required>
-    </label><br/>
+      <tr>
+        <td><label>Author:</td>
+        <td><input type='text' name='book[author]' placeholder='Who wrote it?' required>
+        </label></td>
+      </tr>
 
-    <label>Favorite Quote:
-      <textarea type='text' name='book[quote]' placeholder='Inspire Us!' required></textarea>
-    </label><br/>
+      <tr>
+        <td><label>Favorite Quote:</td>
+        <td><textarea type='text' name='book[quote]' placeholder='Inspire Us!' required rows="5" cols="60"></textarea>
+        </label></td>
+      </tr>
+    </table>
 
     <h4>Which Bookshelf Would You Like to place this Book On?</h4>
     <p>Choose an Existing Shelf<p>
@@ -31,7 +40,7 @@
         <%=shelf.name%></input>
       <% end %><br/>
 
-      <p> or Create a new Shelf </p>
+      <p> or Create Shelf </p>
         <input type='text' name='shelf[name]' placeholder='new shelf name'/><br/>
     
     <input type='submit' value='Create Book' id='submit'>
