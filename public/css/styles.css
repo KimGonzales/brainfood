@@ -51,8 +51,8 @@ input.button:hover {
     height: 100px;
     line-height: 100px;
     text-align: center;
+    color: #178976;
     text-transform: uppercase;
-    color: #004d4d;
     background-color:coral;
     border-radius: 50%;
     border-style: solid;
