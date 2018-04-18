@@ -39,6 +39,7 @@ class ShelvesController < ApplicationController
 
   delete '/shelves/:id/delete' do 
     shelf = Shelf.find_by(id: params[:id])
+    redirect to '/books' if !user_permitted_to_edit(shelf)
     flash[:notice] = "You've successfuly Deleted your
       #{shelf.name} Shelf."
     shelf.destroy
