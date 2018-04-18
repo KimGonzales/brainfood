@@ -1,4 +1,3 @@
-require 'sinatra/base'
 class BooksController < ApplicationController
 
   get '/books' do

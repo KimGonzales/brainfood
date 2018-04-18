@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     end
   end
 
-
   get '/profile' do
     login_checkpoint
     @user = current_user
