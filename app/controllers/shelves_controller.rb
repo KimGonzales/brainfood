@@ -1,7 +1,7 @@
 class ShelvesController < ApplicationController
 
   #------------------------------------- Read Shelves ---------------------------------
-  
+
   get '/shelves' do 
     redirect to '/profile'
   end 
@@ -16,7 +16,7 @@ class ShelvesController < ApplicationController
 
   get '/shelves/:id/edit' do
     @shelf = Shelf.find_by(id: params[:id])
-    erb :'/shelves/edit' 
+    if user_permitted_to_edit(@shelf) then erb :'/shelves/edit' else redirect to '/books' end
   end
 
   patch '/shelves/:id' do
