@@ -46,11 +46,16 @@ input.button:hover {
     background-color: black;
 }
 
-h1 {
+.circle {
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    text-transform: uppercase;
     color: #004d4d;
     background-color:coral;
-    text-align: center;
-    border-radius: 10px;
+    border-radius: 50%;
     border-style: solid;
     border-color: black;
+    margin: 0 auto 40px;
 }
