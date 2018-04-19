@@ -81,3 +81,8 @@ input.button:hover {
 ul {
     list-style: none;
 }
+
+.container {
+    width: 700px;
+    margin: auto;
+}
