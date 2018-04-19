@@ -26,6 +26,7 @@ a:hover {
     color: seashell;
     font-family: noteworthy;
 }
+
 .user-shelves p a:hover {
     color: coral;
 }
@@ -46,16 +47,13 @@ input.button:hover {
     background-color: black;
 }
 
-.circle {
+.booklogo {
     width: 100px;
-    height: 100px;
-    line-height: 100px;
+    height: 140px;
     text-align: center;
+    background-color: coral;
     color: #178976;
-    text-transform: uppercase;
-    background-color:coral;
-    border-radius: 50%;
-    border-style: solid;
-    border-color: black;
     margin: 0 auto 40px;
+    line-height: 120px;
+    box-shadow: 5px 10px;
 }
