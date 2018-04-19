@@ -79,7 +79,7 @@ require 'spec_helper'
       expect(last_response.status).to eq(302)
       follow_redirect!
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to include('Latest Happenings')
+      expect(last_response.body).to include('brainfeed')
     end
 
     it 'does not let user view login page if already logged in' do 
