@@ -7,6 +7,7 @@ class BooksController < ApplicationController
   #----------------------------------- Create New Books -------------------------------
   
   get '/books/new' do
+    login_checkpoint 
     @user = current_user
     erb :'/books/new' 
   end 
@@ -18,6 +19,7 @@ class BooksController < ApplicationController
       erb :'/books/new' 
 
     elsif !!params[:book][:shelf_id] 
+      binding.pry
       @book = Book.create(params[:book])
       redirect to "/books/#{@book.id}"
 
