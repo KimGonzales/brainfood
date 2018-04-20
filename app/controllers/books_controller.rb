@@ -23,10 +23,7 @@ class BooksController < ApplicationController
       redirect to "/books/#{@book.id}"
 
     else valid?(params[:shelf])
-      @book = Book.new(params[:book])
-      @book.shelf = Shelf.create(params[:shelf])
-      @user.shelves << @book.shelf
-      @book.save
+      @book = @user.shelves.create(params[:shelf]).books.create(params[:book])
       redirect to "/books/#{@book.id}"
     end 
     
