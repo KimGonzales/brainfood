@@ -19,7 +19,6 @@ class BooksController < ApplicationController
       erb :'/books/new' 
 
     elsif !!params[:book][:shelf_id] 
-      binding.pry
       @book = Book.create(params[:book])
       redirect to "/books/#{@book.id}"
 
