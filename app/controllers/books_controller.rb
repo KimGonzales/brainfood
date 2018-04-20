@@ -35,7 +35,7 @@ class BooksController < ApplicationController
 
   get '/books/:id' do
     login_checkpoint
-    @book = Book.find_by_id(params[:id])
+    @book = Book.find(params[:id])
     erb :'/books/show_book'
   end
 
@@ -43,12 +43,12 @@ class BooksController < ApplicationController
 
   get '/books/:id/edit' do
     login_checkpoint
-    @book = Book.find_by(id: params[:id])
+    @book = Book.find(params[:id])
     if user_permitted_to_edit(@book) then erb :'/books/edit' else redirect to '/books' end 
   end 
 
   patch '/books/:id' do
-    book = Book.find_by(id: params[:id])
+    book = Book.find(params[:id])
     book.update(params[:book])
     redirect to "/books/#{book.id}"
   end
