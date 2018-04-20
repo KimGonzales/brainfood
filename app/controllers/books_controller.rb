@@ -46,14 +46,14 @@ class BooksController < ApplicationController
   end 
 
   patch '/books/:id' do
-    book = Book.find(params[:id])
+    book = current_user.books.find_by(id: params[:id])
     book.update(params[:book])
     redirect to "/books/#{book.id}"
   end
 
     #--------------------------------- Delete Books ---------------------------------
 
-  delete '/books/:id/delete' do 
+  delete '/books/:id/delete' do
     book = Book.find(params[:id])
     redirect to '/books' if !user_permitted_to_edit(book)
     flash[:notice] = "#{book.title} has been deleted."
