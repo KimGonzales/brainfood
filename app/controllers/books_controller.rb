@@ -56,7 +56,7 @@ class BooksController < ApplicationController
     #--------------------------------- Delete Books ---------------------------------
 
   delete '/books/:id/delete' do 
-    book = Book.find_by(id: params[:id])
+    book = Book.find(params[:id])
     redirect to '/books' if !user_permitted_to_edit(book)
     flash[:notice] = "#{book.title} has been deleted."
     book.destroy
