@@ -20,21 +20,11 @@ class ShelvesController < ApplicationController
   end
 
   patch '/shelves/:id' do
-    current_user.shelves.find(params[:id])
-    binding.pry
-    # @shelf = Shelf.find_by(id: params[:id])
-    # @shelf.update(params[:shelf])
-
-    # if has_valid?(params[:book])
-    #   @shelf.books << Book.new(params[:book])
-    # else 
-    #   flash[:notice] = "Please fill all required book fields to create a new book."
-    #   erb :'/shelves/edit'
-    # end 
-
-    # flash[:notice] = "You've successfully edited your 
-    #   #{@shelf.name} Shelf."
-    # erb :'shelves/show_shelf'
+    @shelf = current_user.shelves.find_by(id: params[:id])
+    @shelf.update(params[:shelf])
+    @shelf.books.create(params[:book])
+    flash[:notice] = "You've successfully edited your '#{@shelf.name}' Shelf."
+    redirect to "/shelves/#{@shelf.id}"
   end 
 
   #------------------------------------ Delete Shelves --------------------------------
