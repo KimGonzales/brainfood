@@ -4,7 +4,7 @@
   <%= flash[:notice] %><br/>
 <% end %>
 
-<% if @user.shelves.empty? %>
+<% if @user.shelves.empty? && @user.id == session[:user_id] %>
   <div>Looks Like Your Library's Empty! </div>
 <% end %>
 
@@ -12,8 +12,6 @@
   <p>Enjoying a New Book?<br/> 
   <a href="/books/new">Add</a> it to the Collective</p>
 <%end%>
-
-
 
 <div class="bookcase">
   <% @user.shelves.each do |shelf| %>
