@@ -1,11 +1,11 @@
+<h3>Edit Your Book Below </h3>
+
 <h2><%=@book.title%> <h2>
 <h4>Author: <%=@book.author%></h4>
 
 <p>"<%=@book.quote%>"</p>
 
 <p>From your <a href="/shelves/<%=@book.shelf.id%>"><%=@book.shelf.name%></a> Bookshelf </p>
-
-<h3>Edit Your Book Below </h3>
 
 <form method='POST' action='/books/<%=@book.id%>'>
   <input type='hidden' id='hidden' name='_method' value='PATCH'>
