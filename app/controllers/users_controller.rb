@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   
+  #---------------------------------------- Log In ------------------------------------
+  
   get '/login' do
     redirect to '/books' if logged_in?
     erb :'users/login'
@@ -8,15 +10,16 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect to '/books'
+      session[:user_id] = @user.id and redirect to '/books'
     else
-      flash[:notice] = "The username and password you 
-        entered did not match our records. Please double-check and try again."
+      flash[:notice] = "The username and password you entered did not match our 
+        records. Please double-check and try again."
       erb :'users/login'
     end
   end
 
+  #---------------------------------------- Sign Up -----------------------------------
+ 
   get '/signup' do
     redirect to '/books' if logged_in?
     erb :'users/signup'
@@ -24,14 +27,17 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if username_exists?(params)
-      flash[:taken] = "That username is already taken, please use another."
-      erb :'/users/signup'
-    else
-      @user = User.create(params)
-      session[:user_id] = @user.id
-      redirect to '/books'
+      flash[:taken] = "That username is already taken." and erb :'/users/signup'
+    end 
+    @user = User.create(params)
+    if @user.save 
+      session[:user_id] = @user.id and redirect to '/books'
+    else 
+      redirect to '/signup'
     end 
   end
+
+  #----------------------------------- Show User Page ---------------------------------
 
   get '/profile' do
     login_checkpoint
@@ -44,6 +50,8 @@ class UsersController < ApplicationController
     @user = User.find_by_slug(params[:slug])
     erb :'/users/show'
   end
+
+  #--------------------------------------- Log Out ------------------------------------
 
   get '/logout' do
     login_checkpoint
