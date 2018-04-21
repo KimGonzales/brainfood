@@ -1,5 +1,5 @@
-* {
-    font-family: noteworthy, 'Trebuchet';
+body {
+    font-family: monospace;
 }
 
 .user-shelves {
@@ -9,7 +9,7 @@
     color: seashell;
     margin: 5px;
     border-color: black;
-    font-family: noteworthy;
+    font-family: monospace;
     border-radius: 10px;
 }
 
@@ -23,7 +23,7 @@ a:hover {
 
 .user-shelves p a {
     text-decoration: none;
-    color: seashell;
+    color: hsl(182, 79%, 85%);
     font-family: noteworthy;
 }
 

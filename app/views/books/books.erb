@@ -4,7 +4,7 @@
 <span>Reading Something New? Add Your <a href='/books/new'class="button">New Book</a>
   to The Collective</span> </br>
 
-<div class='brainfeed'>
+<div class="brainfeed">
   <% Book.all.reverse.each do |book| %>
     <% if book.user %>
       <div class="user-shelves">
