@@ -47,8 +47,7 @@ class BooksController < ApplicationController
 
   patch '/books/:id' do
     book = current_user.books.find_by(id: params[:id])
-    book.update(params[:book])
-    redirect to "/books/#{book.id}"
+    book.update(params[:book]) and redirect to "/books/#{book.id}"
   end
 
     #--------------------------------- Delete Books ---------------------------------
