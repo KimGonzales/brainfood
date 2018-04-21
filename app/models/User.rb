@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :shelves
   has_many :books, through: :shelves
+  validates_presence_of :username, :email, :password
 
   def slug 
     self.username.downcase.gsub(" ","-")

@@ -1,5 +1,10 @@
 <h2> Signup for BrainFood  </h2>
 
+<% if flash.has?(:taken) %>
+  <%= flash[:taken] %>
+<% end %>
+
+
 <div class="signup form">
   <form method="post" action="/signup">
     <label>Username:</label>
