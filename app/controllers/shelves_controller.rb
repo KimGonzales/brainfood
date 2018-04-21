@@ -35,7 +35,6 @@ class ShelvesController < ApplicationController
       flash[:notice] = "You've successfuly Deleted your '#{@shelf.name}' Shelf."
       redirect to '/profile'
     else 
-      flash[:notice] = "You cannot change another user's content."
       redirect to "/shelves/#{@shelf.id}"
     end
   end 
