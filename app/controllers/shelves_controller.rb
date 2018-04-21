@@ -31,12 +31,9 @@ class ShelvesController < ApplicationController
 
   delete '/shelves/:id/delete' do 
     @shelf = current_user.shelves.find_by(id: params[:id])
-    if @shelf && @shelf.destroy
-      flash[:notice] = "You've successfuly Deleted your '#{@shelf.name}' Shelf."
-      redirect to '/profile'
-    else 
-      redirect to "/shelves/#{@shelf.id}"
-    end
+    redirect to "/shelves/#{@shelf.id}" if @shelf.nil?
+    flash[:notice] = "You've successfuly Deleted your '#{@shelf.name}' Shelf."
+    @shelf.destroy and redirect to '/profile'
   end 
 
 end
