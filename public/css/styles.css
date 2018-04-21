@@ -1,7 +1,6 @@
 body {
     font-family: monospace;
 }
-
 .user-shelves {
     border: solid;
     padding: 7px;
@@ -12,41 +11,32 @@ body {
     font-family: monospace;
     border-radius: 10px;
 }
-
 a {
     color: coral;
 }
-
 a:hover {
     color: teal;
 }
-
 .user-shelves p a {
     text-decoration: none;
     color: hsl(182, 79%, 85%);
     font-family: noteworthy;
 }
-
 .user-shelves p a:hover {
     color: coral;
 }
-
-
 a:visited {
     color: none;
 }
-
 input.button {
     width: 4em;
     height: 2em;
     color: seashell;
     background-color:teal;
 }
-
 input.button:hover {
     background-color: black;
 }
-
 .booklogo {
     width: 100px;
     height: 140px;
@@ -57,7 +47,6 @@ input.button:hover {
     line-height: 120px;
     box-shadow: 5px 10px;
 }
-
 .bookcase {
     background-color: seashell;
     border: none;
@@ -65,28 +54,23 @@ input.button:hover {
     padding: 15px 40px;
     border-radius: 1%;
 }
-
 .shelf {
     border: 2px dotted #178975;
     padding: 10px;
     border-radius: 2%;
     margin: 20px;
 }
-
 .shelf ul {
     list-style: none;
     color: #178982;
 }
-
 ul {
     list-style: none;
 }
-
 .container {
     width: 700px;
     margin: auto;
 }
-
 .topnav {
     display: block;
     text-align: left;
