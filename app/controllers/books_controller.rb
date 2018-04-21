@@ -8,8 +8,7 @@ class BooksController < ApplicationController
   
   get '/books/new' do
     login_checkpoint 
-    @user = current_user
-    erb :'/books/new' 
+    @user = current_user and erb :'/books/new' 
   end 
 
   post '/books' do
