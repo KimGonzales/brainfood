@@ -1,5 +1,9 @@
 body {
-    font-family: monospace;
+    font-family: Helvetica, sans-serif, 'Arial Narrow';
+    background-image: url(https://i.imgur.com/jLBRFUTh.jpg);
+    background-repeat: on;
+    background-size: 100%;
+    color: white;
 }
 .user-shelves {
     border: solid;
@@ -12,7 +16,7 @@ body {
     border-radius: 10px;
 }
 a {
-    color: coral;
+    color: white;
 }
 a:hover {
     color: teal;
@@ -40,12 +44,15 @@ input.button:hover {
 .booklogo {
     width: 100px;
     height: 140px;
+    font-family: noteworthy, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande';
+    text-transform: uppercase;
     text-align: center;
     background-color: coral;
     color: #178976;
     margin: 0 auto 40px;
     line-height: 120px;
     box-shadow: 5px 10px;
+    border: 1px solid black;
 }
 .bookcase {
     background-color: seashell;
@@ -75,4 +82,11 @@ ul {
     display: block;
     text-align: left;
     padding-left: 40px;
+}
+
+.welcome-page {
+    position: absolute;
+    bottom: 50px;
+    left: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
 }
