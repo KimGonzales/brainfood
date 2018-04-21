@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
   end 
 
   #checks params are not empty before an instance is created or updated.
-  def valid?(params)
+  def has_valid?(params)
     params.none?{|key,value| value.empty?}
   end
 

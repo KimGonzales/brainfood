@@ -23,7 +23,7 @@ class ShelvesController < ApplicationController
     @shelf = Shelf.find_by(id: params[:id])
     @shelf.update(params[:shelf])
 
-    if valid?(params[:book])
+    if has_valid?(params[:book])
       @shelf.books << Book.new(params[:book])
     else 
       flash[:notice] = "Please fill all required book fields to create a new book."

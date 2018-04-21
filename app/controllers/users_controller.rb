@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if valid?(params)
+    if has_valid?(params)
       @user = User.create(params)
       session[:user_id] = @user.id 
       redirect to '/books'
