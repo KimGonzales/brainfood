@@ -26,15 +26,18 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
+    @user = User.new(params)
+
     if username_exists?(params)
-      flash[:taken] = "That username is already taken." and erb :'/users/signup'
-    end 
-    @user = User.create(params)
-    if @user.save 
-      session[:user_id] = @user.id and redirect to '/books'
+      flash[:taken] = "That username is already taken! Try another."
+      erb :'/users/signup'
+    elsif @user.save
+      session[:user_id] = @user.id
+      redirect to '/books'
     else 
       redirect to '/signup'
     end 
+    
   end
 
   #----------------------------------- Show User Page ---------------------------------
