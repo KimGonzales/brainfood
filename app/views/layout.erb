@@ -6,17 +6,19 @@
   </head>
   <body>
 
-    <div class="container">
-    <div id="header">BrainFood</div>
-      <% if current_user %>
+   <% if current_user %>
       <div class="topnav">
         <a href='/'>Home</a>
         <a href='/profile'>Profile<a>
         <a href='/logout'>Logout</a>
       </div>
-      <%end%>
-    
-      <%= yield %>
+    <%end%>
+
+    <div class="container">
+      <div id="header">BrainFood</div>
+      <article>
+        <%= yield %>
+      </article>
     </div>
 
   </body>

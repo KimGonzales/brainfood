@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Montserrat');
+
+
 body {
-    font-family: Helvetica, sans-serif, 'Arial Narrow';
+    font-family: 'Montserrat', sans-serif;
     background-image: url(https://i.imgur.com/jLBRFUTh.jpg);
     background-repeat: on;
     background-size: 100%;
-    color: white;
+    color: seashell;
 }
 .user-shelves {
     border: solid;
@@ -12,11 +15,11 @@ body {
     color: seashell;
     margin: 5px;
     border-color: black;
-    font-family: monospace;
+    font-family: 'IBM Plex Mono', monospace;
     border-radius: 10px;
 }
 a {
-    color: white;
+    color: seashell;
 }
 a:hover {
     color: coral;
@@ -24,7 +27,7 @@ a:hover {
 .user-shelves p a {
     text-decoration: none;
     color: rgb(186, 244, 246);
-    font-family: noteworthy;
+    font-family: 'Montserrat', sans-serif;
 }
 .user-shelves p a:hover {
     color: coral;
@@ -41,11 +44,24 @@ input.button {
 input.button:hover {
     background-color: black;
 }
+.topnav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding-left: 50px;
+    background-color: black;
+    width: 100%;
+    height: 20px;
+}
+.topnav a {
+    text-decoration: none;
+    font-stretch: expanded;
+}
 #header {
     background-color: rgba(0, 0, 0, 0.5);
     color: seashell;
-    position: relative;
-    top: 0;
+    position: fixed;
+    top: 20px;
     left: 0;
     text-align: center;
     width: 100%;
@@ -54,7 +70,8 @@ input.button:hover {
     margin: 0px;
     font-size: 36px;
     padding-top: 50px;
-    font-style: oblique;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
 }
 .bookcase {
     border: none;
@@ -71,14 +88,13 @@ input.button:hover {
 }
 .shelf ul {
     list-style: none;
-    color: white;
-    font-family: monospace, 'Courier New', Helvetica;
+    color: seashell;
+    font-family: 'IBM Plex Mono', monospace;
 }
-
 .shelf a {
     text-decoration: none;
     color: rgb(186, 244, 246);
-    font-family: noteworthy;
+    font-family: 'Montserrat', sans-serif;
 }
 .shelf a:hover {
     color: coral;
@@ -87,20 +103,19 @@ ul {
     list-style: none;
 }
 .container {
-    background-color: rgba(23, 137, 117, 0.2);
+    background-color: rgba(23, 137, 117, 0.3);
+    width: 900px;
+    position: relative;
+    margin: auto;
+    margin-top: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+article {
     width: 700px;
     margin: auto;
-}
-.topnav {
-    padding-top: 10px;
     position: relative;
-    text-align: left;
-    padding-left: 40px;
 }
-
-.welcome-page, .loginform {
-    position: absolute;
-    bottom: 50px;
-    left: 30px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', Arial, sans-serif;
+.loginform{
+    background-color: none;
 }
