@@ -44,7 +44,7 @@ class ApplicationController < Sinatra::Base
 
   #returns true if desired username is already in use. 
   def username_exists?(params)
-    !!User.find_by(username: params[:username])
-  end 
+  !!User.find_by(username: params[:username])
+  end
 
 end 
