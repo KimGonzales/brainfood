@@ -56,6 +56,7 @@ input.button:hover {
 .topnav a {
     text-decoration: none;
     font-stretch: expanded;
+    padding-left: 10px;
 }
 #header {
     background-color: rgba(0, 0, 0, 0.5);
