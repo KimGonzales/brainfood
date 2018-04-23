@@ -46,7 +46,12 @@ class BooksController < ApplicationController
 
   patch '/books/:id' do
     book = current_user.books.find_by(id: params[:id])
-    book.update(params[:book]) and redirect to "/books/#{book.id}"
+    if book.try {|b|b.update(params[:book])}
+      redirect to "/books/#{book.id}"
+    else 
+      flash[:notice] = "You cannot edit someone else's content!"
+      redirect to '/profile'
+    end 
   end
 
     #--------------------------------- Delete Books ---------------------------------
