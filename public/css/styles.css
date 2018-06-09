@@ -5,7 +5,6 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: url(https://i.imgur.com/jLBRFUTh.jpg);
     background-repeat: on;
-    background-size: 100%;
     color: seashell;
 }
 .user-shelves {
@@ -45,7 +44,7 @@ input.button:hover {
     background-color: black;
 }
 .topnav {
-    position: fixed;
+    position: static;
     top: 0px;
     left: 0px;
     padding-left: 50px;
@@ -61,8 +60,8 @@ input.button:hover {
 #header {
     background-color: rgba(0, 0, 0, 0.5);
     color: seashell;
-    position: fixed;
-    top: 20px;
+    position: static;
+    top: 0px;
     left: 0;
     text-align: center;
     width: 100%;
@@ -70,7 +69,6 @@ input.button:hover {
     padding: 0px;
     margin: 0px;
     font-size: 36px;
-    padding-top: 50px;
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 }
@@ -106,9 +104,8 @@ ul {
 .container {
     background-color: rgba(23, 137, 117, 0.5);
     width: 900px;
-    position: relative;
+    position: static;
     margin: auto;
-    margin-top: 200px;
     padding-top: 10px;
     padding-bottom: 10px;
 }
