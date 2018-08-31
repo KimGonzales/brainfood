@@ -3,6 +3,7 @@ require 'rack-flash'
 class ApplicationController < Sinatra::Base
 
   configure do 
+    register Sinatra::Twitter::Bootstrap::Assets
     set :public_folder, 'public'
     set :views , 'app/views'
     enable :sessions

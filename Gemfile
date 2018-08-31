@@ -13,6 +13,8 @@ gem 'bcrypt'
 gem "tux"
 gem 'rack-flash3'
 gem 'sinatra-redirect-with-flash'
+gem 'sinatra-twitter-bootstrap', :require => 'sinatra/twitter-bootstrap'
+
 
 group :test do
   gem 'rspec'
